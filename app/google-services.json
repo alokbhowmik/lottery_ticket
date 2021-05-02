@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "535474282491",
+    "project_id": "lottery-ticket-affee",
+    "storage_bucket": "lottery-ticket-affee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:535474282491:android:23fd5810877062e492755e",
+        "android_client_info": {
+          "package_name": "alok.bhowmik.lotteryticket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "535474282491-086f4gp5fgu2dtdnmfh2bk0heohcum09.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBcDOQ-ps2CvTJjMWGZC5unfLqFWpSBLo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "535474282491-086f4gp5fgu2dtdnmfh2bk0heohcum09.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

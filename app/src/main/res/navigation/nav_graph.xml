@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="alok.bhowmik.lotteryticket.splash.fragment.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_adminLotteryFragment"
+            app:destination="@id/adminLotteryFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_lotteryListFragment"
+            app:destination="@id/lotteryListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="alok.bhowmik.lotteryticket.loginRegister.fragment.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_verificationEmailFragment"
+            app:destination="@id/verificationEmailFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="alok.bhowmik.lotteryticket.loginRegister.fragment.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/verificationEmailFragment"
+        android:name="alok.bhowmik.lotteryticket.loginRegister.fragment.VerificationEmailFragment"
+        android:label="VerificationEmailFragment"
+        tools:layout="@layout/verify_email" >
+        <action
+            android:id="@+id/action_verificationEmailFragment_to_lotteryListFragment"
+            app:destination="@id/lotteryListFragment"
+            app:popUpTo="@id/verificationEmailFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="alok.bhowmik.lotteryticket.loginRegister.fragment.ForgetPasswordFragment"
+        android:label="ForgetPasswordFragment"
+        tools:layout="@layout/fragment_forget_password" />
+    <fragment
+        android:id="@+id/lotteryListFragment"
+        android:name="alok.bhowmik.lotteryticket.lotteryList.fragment.LotteryListFragment"
+        android:label="LotteryListFragment"
+        tools:layout="@layout/fragment_lottery_list">
+        <action
+            android:id="@+id/action_lotteryListFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/lotteryListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminLotteryFragment"
+        android:name="alok.bhowmik.lotteryticket.admin.fragment.AdminLotteryFragment"
+        android:label="AdminLotteryFragment"
+        tools:layout="@layout/fragment_admin_lottery">
+        <action
+            android:id="@+id/action_adminLotteryFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/adminLotteryFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

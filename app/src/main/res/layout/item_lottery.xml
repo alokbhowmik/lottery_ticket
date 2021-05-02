@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="mView"
+            type="alok.bhowmik.lotteryticket.lotteryList.view.LotteryItemView" />
+
+        <variable
+            name="lottery"
+            type="alok.bhowmik.lotteryticket.lotteryList.model.Lottery" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="2dp"
+            app:cardCornerRadius="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="12dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/companyNameTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@{lottery.companyName}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Company name" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/userTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@{lottery.userEmail.toString()}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+                    android:textStyle="bold"
+                    android:visibility="@{lottery.hasBuy?View.VISIBLE:View.GONE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/companyNameTV"
+                    tools:text="user@user.com" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/amountTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/amount"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/lotteryNoTV"
+                    app:layout_constraintStart_toStartOf="@+id/lotteryNoTV"
+                    app:layout_constraintTop_toBottomOf="@+id/lotteryNoTV" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{lottery.amount}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/lotteryNo"
+                    app:layout_constraintStart_toStartOf="@+id/lotteryNo"
+                    app:layout_constraintTop_toTopOf="@id/amountTV"
+                    tools:text="20" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/lotteryNoTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/lottery_no"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/companyNameTV"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/userTV" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/lotteryNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@{lottery.lotteryNo}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/lotteryNoTV"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/lotteryNoTV"
+                    app:layout_constraintTop_toTopOf="@+id/lotteryNoTV"
+                    tools:text="1234" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/buyBtn"
+                    style="@style/AppButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center"
+                    android:onClick="@{()-> mView.onBuyBtnClick()}"
+                    android:text="@string/buy"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+                    android:visibility="@{!lottery.hasBuy?View.VISIBLE:View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/amountTV" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
